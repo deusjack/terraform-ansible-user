@@ -1,0 +1,20 @@
+---
+- hosts: "{{ hostname }}"
+  gather_facts: no
+  tasks:
+    - name: Create user
+      user:
+        append: false
+        create_home: "{{ create_home | bool}}"
+        group: "{{ primary_group }}"
+        groups: "{{ user_groups | list }}"
+        home: "{{ home | default(omit) }}"
+        shell: "{{ shell }}"
+        name: "{{ username }}"
+        comment: "{{ comment | default(omit) }}"
+        password: "{{ password }}"
+        seuser: "{{ seuser }}"
+        uid: "{{ uid | default(omit) }}"
+        system: "{{ is_system_user | bool }}"
+        update_password: always
+        state: present
