@@ -8,7 +8,7 @@ resource "ansible_playbook" "user" {
       username       = var.name
       password       = var.password
       primary_group  = var.primary_group
-      groups         = jsonencode(length(var.groups) > 0 ? var.groups : [var.primary_group])
+      user_groups    = jsonencode(length(var.groups) > 0 ? var.groups : [var.primary_group])
       create_home    = tostring(var.create_home)
       shell          = var.shell
       seuser         = var.seuser
