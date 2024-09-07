@@ -1,6 +1,6 @@
 resource "ansible_playbook" "user" {
   name                    = var.hostname
-  playbook                = "${path.root}/../ansible/user.yaml"
+  playbook                = "${path.root}/user.yaml"
   replayable              = false
   ignore_playbook_failure = false
   extra_vars = merge(
