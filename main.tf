@@ -5,10 +5,11 @@ resource "ansible_playbook" "user" {
   ignore_playbook_failure = false
   extra_vars = merge(
     {
-      username       = var.name
-      password       = var.password
-      primary_group  = var.primary_group
-      groups         = jsonencode(length(var.groups) > 0 ? var.groups : [var.primary_group])
+      username      = var.name
+      password      = var.password
+      primary_group = var.primary_group
+      #groups         = jsonencode(length(var.groups) > 0 ? var.groups : [var.primary_group])
+      groups         = jsonencode(var.groups)
       create_home    = tostring(var.create_home)
       shell          = var.shell
       seuser         = var.seuser

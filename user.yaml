@@ -7,7 +7,7 @@
         append: false
         create_home: "{{ create_home | bool}}"
         group: "{{ primary_group }}"
-        groups: "{{ user_groups | list }}"
+        groups: "{{ groups | list }}"
         home: "{{ home | default(omit) }}"
         shell: "{{ shell }}"
         name: "{{ username }}"
